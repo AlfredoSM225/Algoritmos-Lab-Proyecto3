@@ -42,5 +42,10 @@ public class Cola <T> {
         }
         return regreso;
     }
+
+    public T peek(int indice){
+        return cola[indice];
+    }
+
 }
 

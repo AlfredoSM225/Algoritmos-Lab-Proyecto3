@@ -6,6 +6,7 @@ public class D6 {
     private int valorD6;
 
     public D6(){
+        this.valorD6 = 1;
     }
 
     public int rollD6(){
