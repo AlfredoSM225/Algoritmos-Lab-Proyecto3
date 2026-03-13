@@ -19,4 +19,10 @@ public class ControlDiceGame implements Initializable {
 
     }
 
+    public void turno(){
+        juego.getLogica().turno();
+        juego.actualizarVista();
+
+    }
+
 }

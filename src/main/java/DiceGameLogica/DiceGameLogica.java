@@ -58,4 +58,8 @@ public class DiceGameLogica {
         }
         System.out.println(c + " Fichas Salidas: " + fichaSalida.size());
     }
+
+    public Cola<Persona> getColaPersonas() {
+        return colaPersonas;
+    }
 }

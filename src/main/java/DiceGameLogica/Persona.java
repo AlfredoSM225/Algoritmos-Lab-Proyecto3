@@ -29,13 +29,15 @@ public class Persona {
 
     public void recibirFichasIniciales(int numFichas){
         for (int i = 1; i <= numFichas; i++){
-            fichas.add(new Ficha());
+            fichas.add(new Ficha(false));
         }
     }
 
     public void recibirFichas(ArrayList<Ficha> recibidas){
         for(Ficha f : recibidas){
-            f.MoverFicha();
+            if(identificador == 1){
+                f.fichaNueva();
+            }
             this.fichas.add(f);
         }
 

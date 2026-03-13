@@ -2,12 +2,20 @@
 
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.Button?>
 <Pane
         fx:id="mesa"
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="GUIDiceGame.ControlDiceGame"
         prefHeight="400.0"
-        prefWidth="900.0">
+        prefWidth="900.0"
+        style="-fx-background-color: white;">
+
+    <Button fx:id="Roll"
+            layoutX="1200"
+            layoutY="600"
+            text="ROLL"
+            onAction="#turno"/>
 
 </Pane>

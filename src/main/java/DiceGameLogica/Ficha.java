@@ -1,20 +1,30 @@
 package DiceGameLogica;
 
 public class Ficha {
-    int movimientos;
+    int turnos;
     int posicion;
+    boolean tipoFicha;
 
-    public Ficha(){
-        movimientos = 0;
+    public Ficha(boolean tipoFicha){
+        turnos = 0;
         posicion = 0;
+        this.tipoFicha = tipoFicha;
     }
 
-    public void MoverFicha(){
-        movimientos = movimientos +1;
+    public void TurnosFicha(){
+        turnos = turnos +1;
     }
 
-    public int getMovimientos() {
-        return movimientos;
+    public boolean getTipoFicha(){
+        return tipoFicha;
+    }
+
+    public void fichaNueva(){
+        tipoFicha = true;
+    }
+
+    public int getTurnos() {
+        return turnos;
     }
 
     public int getPosicion() {
