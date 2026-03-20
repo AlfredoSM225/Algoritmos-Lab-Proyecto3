@@ -3,6 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <Pane
         fx:id="mesa"
         xmlns="http://javafx.com/javafx"
@@ -15,7 +16,37 @@
     <Button fx:id="Roll"
             layoutX="1200"
             layoutY="600"
-            text="ROLL"
+            text="Iniciar"
             onAction="#turno"/>
+
+    <Button fx:id="Stats"
+            layoutX="1100"
+            layoutY="600"
+            text="Estadisticas"
+            onAction="#mostrarEstadisticas"/>
+
+    <Label fx:id="turnoActual"
+           layoutX="1000"
+           layoutY="600"
+           text="Turno: 1"
+    />
+
+    <Label fx:id="fichasSalidas"
+           layoutX="1250"
+           layoutY="140"
+           text="Fichas Salidas:"
+    />
+
+    <Label fx:id="fichasIniciales"
+           layoutX="1250"
+           layoutY="150"
+           text="Fichas Iniciales: 0"
+    />
+
+    <Label fx:id="fichasNuevas"
+           layoutX="1250"
+           layoutY="160"
+           text="Fichas Nuevas: 0"
+    />
 
 </Pane>

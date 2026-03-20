@@ -16,7 +16,7 @@ public class DiceGame {
         for(int i = 1;i <= 20; i++){
             sc.nextLine();
 
-            logica.turno();
+            //logica.turno();
 
             System.out.print("Turno " + i + ":\t");
             logica.mostrarConsola();

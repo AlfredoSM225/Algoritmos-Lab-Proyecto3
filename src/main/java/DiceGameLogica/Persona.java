@@ -5,42 +5,54 @@ import java.util.ArrayList;
 public class Persona {
     private int identificador;
     private D6 dado;
-    private ArrayList<Ficha> fichas;
+    private ColaCircular<Ficha> fichas;
 
     public Persona(int identificador){
         this.identificador = identificador;
         dado = new D6();
-        fichas = new ArrayList<>();
+        fichas = new ColaCircular<Ficha>();
         recibirFichasIniciales(4);
     }
 
     public ArrayList<Ficha> quitarFichas(int num){
-        ArrayList<Ficha> sacadas = new ArrayList<>(fichas.subList(0,num));
-        fichas.subList(0,num).clear();
+        ArrayList sacadas = new ArrayList<Ficha>();
+        for(int i = 0; i < num; i++){
+            Ficha f = fichas.eliminarCircular();
+            sacadas.add(f);
+        }
         return sacadas;
     }
 
     public ArrayList<Ficha> quitarTodasFichas(){
-        ArrayList<Ficha> sacadas = new ArrayList<>();
-        sacadas.addAll(fichas);
-        fichas.clear();
+        ArrayList<Ficha> sacadas = new ArrayList<Ficha>();
+        while(fichas.getTamano() > 0){
+            sacadas.add(fichas.eliminarCircular());
+        }
         return sacadas;
     }
 
     public void recibirFichasIniciales(int numFichas){
         for (int i = 1; i <= numFichas; i++){
-            fichas.add(new Ficha(false));
+            fichas.insertarCircular(new Ficha(false));
         }
     }
 
     public void recibirFichas(ArrayList<Ficha> recibidas){
         for(Ficha f : recibidas){
-            if(identificador == 1){
-                f.fichaNueva();
-            }
-            this.fichas.add(f);
+            this.fichas.insertarCircular(f);
         }
 
+    }
+
+    public void aumentarTurnosTodasFichas(){
+        int total = fichas.getTamano();
+        for (int i = 0; i < total; i++) {
+            Ficha f = fichas.eliminarCircular();
+            if(f != null){
+                f.AumentarTurnosFicha();
+                fichas.insertarCircular(f);
+            }
+        }
     }
 
     public int tirarD6(){
@@ -59,16 +71,20 @@ public class Persona {
         this.dado = dado;
     }
 
-    public ArrayList<Ficha> getFichas() {
+    public ColaCircular<Ficha> getFichas() {
         return fichas;
     }
 
-    public void setFichas(ArrayList<Ficha> fichas) {
+    public void setFichas(ColaCircular<Ficha> fichas) {
         this.fichas = fichas;
+    }
+
+    public int getNumFichas(){
+        return fichas.getTamano();
     }
 
     @Override
     public String toString(){
-        return dado.getValorD6() + " " + fichas.size();
+        return dado.getValorD6() + " " + fichas.getTamano();
     }
 }

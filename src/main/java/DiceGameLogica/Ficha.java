@@ -11,7 +11,7 @@ public class Ficha {
         this.tipoFicha = tipoFicha;
     }
 
-    public void TurnosFicha(){
+    public void AumentarTurnosFicha(){
         turnos = turnos +1;
     }
 

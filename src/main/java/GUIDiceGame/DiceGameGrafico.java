@@ -34,11 +34,20 @@ public class DiceGameGrafico {
         }
     }
 
-    public void actualizarVista(){
+    public void actualizarVistaTodasFichas(){
         Cola<Persona> colaLogica = logica.getColaPersonas();
         for(int i = 0; i <= 9; i++){
             PersonaGrafico pg = colaPersonas.peek(i);
-            pg.actualizarVista();
+            pg.actualizarVistaFichas();
+
+        }
+    }
+
+    public void actualizarVistaTodosDados(){
+        Cola<Persona> colaLogica = logica.getColaPersonas();
+        for(int i = 0; i <= 9; i++){
+            PersonaGrafico pg = colaPersonas.peek(i);
+            pg.actualizarVistaDado();
 
         }
     }

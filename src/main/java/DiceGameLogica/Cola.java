@@ -47,5 +47,17 @@ public class Cola <T> {
         return cola[indice];
     }
 
+    public int getTamano() {
+
+        if (inicio == -1) {
+
+            return 0;
+
+        }
+
+        return fin - inicio + 1;
+
+    }
+
 }
 

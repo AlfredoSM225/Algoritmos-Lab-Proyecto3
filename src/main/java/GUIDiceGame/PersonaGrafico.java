@@ -1,5 +1,7 @@
 package GUIDiceGame;
 
+import DiceGameLogica.Cola;
+import DiceGameLogica.ColaCircular;
 import DiceGameLogica.Ficha;
 import DiceGameLogica.Persona;
 import javafx.geometry.Insets;
@@ -7,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 
 public class PersonaGrafico {
     private Persona logica;
@@ -30,7 +34,8 @@ public class PersonaGrafico {
         fichas.setVgap(2);
         fichas.setMaxWidth(50);
         actualizarFichas();
-        actualizarVista();
+        actualizarVistaFichas();
+        actualizarVistaDado();
 
         vista = new VBox(2);
         vista.setLayoutX(x);
@@ -50,16 +55,38 @@ public class PersonaGrafico {
         }
     }
 
-    public void actualizarFichas(){
-        fichas.getChildren().clear();
-        for(Ficha f : logica.getFichas()){
+    public void actualizarFichas() {
+        this.fichas.getChildren().clear();
+        ArrayList<Ficha> listaTemporal = new ArrayList<>();
+        ColaCircular<Ficha> colaLogica = logica.getFichas();
+
+        int tamanoActual = colaLogica.getTamano();
+
+        for (int i = 0; i < tamanoActual; i++) {
+            Ficha f = colaLogica.eliminarCircular();
+            if (f != null) {
+                listaTemporal.add(f);
+            }
+        }
+
+        for (Ficha f : listaTemporal) {
             FichaGrafica fichaG = new FichaGrafica(f);
-            fichas.getChildren().add(fichaG.getImagen());
+            this.fichas.getChildren().add(fichaG.getImagen());
+            colaLogica.insertarCircular(f);
+        }
+
+        if (logica.getIdentificador() == 1) {
+            this.fichas.setVisible(false);
+        } else {
+            this.fichas.setVisible(true);
         }
     }
 
-    public void actualizarVista(){
+    public void actualizarVistaDado(){
         d6.actualizarVista();
+    }
+
+    public void actualizarVistaFichas(){
         actualizarFichas();
 
         if (logica.getIdentificador() == 0) {
