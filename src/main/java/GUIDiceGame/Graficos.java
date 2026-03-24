@@ -39,6 +39,8 @@ public class Graficos {
         contenedor.add(graficaTiempos, 1, 1);
     }
 
+    //Los siguientes métodos inicializan las gráficas
+
     public void inicializarGraficaSalidas(){
         CategoryAxis x = new CategoryAxis();
         x.setLabel("Número de Turno");
@@ -111,6 +113,7 @@ public class Graficos {
         contenedor.add(graficaA,1, 2);
     }
 
+    //Actualiza los datos de cada gráfica y su parte visual
     public void actualizarGrafica(int numFichas, int totalFichas, ArrayList<Ficha> fichasP){
         turnos++;
         String t = String.valueOf(turnos);
@@ -123,6 +126,7 @@ public class Graficos {
         }
     }
 
+    //Actualiza específicamente la gráfica de actividad, ya que es más compleja
     public void actualizarGraficaActividad(int turno, int[] valoresDado){
         int sumatoria = 0;
         String t = String.valueOf(turno);
@@ -134,6 +138,7 @@ public class Graficos {
         todasSeries.get(10).getData().add(new XYChart.Data<>(t, sumatoria));
     }
 
+    //Actualiza las series para las gráficas
     public void actualizarSeries(){
         graficaActividad.getData().clear();
         int idx = selector.getSelectionModel().getSelectedIndex();
@@ -143,6 +148,9 @@ public class Graficos {
             graficaActividad.getData().add(todasSeries.get(idx - 1));
         }
     }
+
+
+    //Setters y Getters
 
     public GridPane getVista(){
         return contenedor;

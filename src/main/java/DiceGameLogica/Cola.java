@@ -13,6 +13,7 @@ public class Cola <T> {
         cola = (T[]) new Object[max];
     }
 
+    //Inserta objetos a la Cola
     public void insertarDato(T dato){
         if(fin < max -1) {
             fin = fin + 1;
@@ -27,6 +28,7 @@ public class Cola <T> {
 
     }
 
+    //Elimina objetos de la Cola
     public T eliminarDato(){
         T regreso = null;
         if(inicio != -1){
@@ -43,10 +45,12 @@ public class Cola <T> {
         return regreso;
     }
 
+    //Permite ver un elemento sin eliminarlo segun su indice
     public T peek(int indice){
         return cola[indice];
     }
 
+    //Regresa el tamaño de la Cola
     public int getTamano() {
 
         if (inicio == -1) {

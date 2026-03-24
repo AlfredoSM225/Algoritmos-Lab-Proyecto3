@@ -16,6 +16,9 @@ public class FichaGrafica {
         setImagen();
     }
 
+    //Setters y Getters
+
+
     public void setImagen(){
         if(logica.getTipoFicha()) {
             String ruta = "/Imagenes/ficha.png";

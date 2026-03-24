@@ -45,16 +45,7 @@ public class PersonaGrafico {
         vista.getChildren().addAll(this.avatar, this.d6.getImagen(), fichas);
     }
 
-    public void setAvatar(){
-        String ruta = "/Imagenes/persona.png";
-
-        if (getClass().getResource(ruta) != null) {
-            avatar.setImage(new Image(getClass().getResource(ruta).toExternalForm()));
-        } else {
-            System.out.println("Error: No se encontró la imagen en " + ruta);
-        }
-    }
-
+    //Actualiza las fichas en el contenedor
     public void actualizarFichas() {
         this.fichas.getChildren().clear();
         ArrayList<Ficha> listaTemporal = new ArrayList<>();
@@ -82,10 +73,12 @@ public class PersonaGrafico {
         }
     }
 
+    //Actualiza la vista del dado
     public void actualizarVistaDado(){
         d6.actualizarVista();
     }
 
+    //Actualiza la vista de las fichas
     public void actualizarVistaFichas(){
         actualizarFichas();
 
@@ -93,6 +86,18 @@ public class PersonaGrafico {
             this.fichas.setVisible(false);
         } else {
             this.fichas.setVisible(true);
+        }
+    }
+
+    //Setters y Getters
+
+    public void setAvatar(){
+        String ruta = "/Imagenes/persona.png";
+
+        if (getClass().getResource(ruta) != null) {
+            avatar.setImage(new Image(getClass().getResource(ruta).toExternalForm()));
+        } else {
+            System.out.println("Error: No se encontró la imagen en " + ruta);
         }
     }
 

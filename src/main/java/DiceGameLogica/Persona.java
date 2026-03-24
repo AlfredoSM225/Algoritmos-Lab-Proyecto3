@@ -14,6 +14,7 @@ public class Persona {
         recibirFichasIniciales(4);
     }
 
+    //Retira una cantidad x de Fichas de la ColaCircular interna
     public ArrayList<Ficha> quitarFichas(int num){
         ArrayList sacadas = new ArrayList<Ficha>();
         for(int i = 0; i < num; i++){
@@ -23,6 +24,7 @@ public class Persona {
         return sacadas;
     }
 
+    //Retira todas las Fichas en la ColaCircular interna
     public ArrayList<Ficha> quitarTodasFichas(){
         ArrayList<Ficha> sacadas = new ArrayList<Ficha>();
         while(fichas.getTamano() > 0){
@@ -31,12 +33,14 @@ public class Persona {
         return sacadas;
     }
 
+    //Agrega a la ColaCircular las fichas iniciales necesarias para cada Persona
     public void recibirFichasIniciales(int numFichas){
         for (int i = 1; i <= numFichas; i++){
             fichas.insertarCircular(new Ficha(false));
         }
     }
 
+    //Recibe Fichas y las inserta en la ColaCircular
     public void recibirFichas(ArrayList<Ficha> recibidas){
         for(Ficha f : recibidas){
             this.fichas.insertarCircular(f);
@@ -44,6 +48,7 @@ public class Persona {
 
     }
 
+    //Aumenta el cotador de turnos interno de las fichas
     public void aumentarTurnosTodasFichas(){
         int total = fichas.getTamano();
         for (int i = 0; i < total; i++) {
@@ -58,6 +63,9 @@ public class Persona {
     public int tirarD6(){
         return dado.rollD6();
     }
+
+
+    //Setters y Getters
 
     public int getIdentificador() {
         return identificador;

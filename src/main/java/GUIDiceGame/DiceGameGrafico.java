@@ -16,11 +16,13 @@ public class DiceGameGrafico {
         colaPersonas = new Cola<PersonaGrafico>();
     }
 
+    //Inicializa la simulación gráfica
     public void simulacion(){
         crearColaPersonasG();
 
     }
 
+    //Crea la cola de personas gráficas y les asigna su position en el pane
     public void crearColaPersonasG(){
         Cola<Persona> colaLogica = logica.getColaPersonas();
         double x = 50;
@@ -34,6 +36,7 @@ public class DiceGameGrafico {
         }
     }
 
+    //Actualiza la vista de las fichas persona por persona
     public void actualizarVistaTodasFichas(){
         Cola<Persona> colaLogica = logica.getColaPersonas();
         for(int i = 0; i <= 9; i++){
@@ -43,6 +46,7 @@ public class DiceGameGrafico {
         }
     }
 
+    //Actualiza la vista de los dados persona por persona
     public void actualizarVistaTodosDados(){
         Cola<Persona> colaLogica = logica.getColaPersonas();
         for(int i = 0; i <= 9; i++){
@@ -51,6 +55,9 @@ public class DiceGameGrafico {
 
         }
     }
+
+
+    //Setters y Getters
 
     public DiceGameLogica getLogica() {
         return logica;

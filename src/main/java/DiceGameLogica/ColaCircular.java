@@ -11,6 +11,7 @@ public class ColaCircular<T> {
         fin = -1;
     }
 
+    //Inserta objetos a la ColaCircular
     public void insertarCircular(T dato) {
         if ((fin == colaC.length - 1 && inicio == 0) || (fin + 1 == inicio)) {
             System.out.println("Desbordamiento");
@@ -30,6 +31,7 @@ public class ColaCircular<T> {
         }
     }
 
+    //Elimina objetos de la ColaCircular
     public T eliminarCircular() {
         if (inicio == -1) {
             System.out.println("Subdesbordamiento");
@@ -51,6 +53,7 @@ public class ColaCircular<T> {
         return dato;
     }
 
+    //Regresa el tamaño de la ColaCircular
     public int getTamano() {
         if (inicio == -1) return 0;
         if (fin >= inicio) return fin - inicio + 1;

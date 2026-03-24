@@ -17,9 +17,13 @@ public class D6Grafico {
 
     }
 
+    //Actualiza la vista según el valor recibido de la lógica
     public void actualizarVista(){
         setImagen(logica.getValorD6());
     }
+
+
+    //Setters y Getters
 
     public void setImagen(int valor){
         String ruta = "/Imagenes/D" + valor + ".png";

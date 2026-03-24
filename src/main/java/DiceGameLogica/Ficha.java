@@ -11,16 +11,20 @@ public class Ficha {
         this.tipoFicha = tipoFicha;
     }
 
+    //Aumenta el contaddor de turnos interno de la ficha, usado para las graficas
     public void AumentarTurnosFicha(){
         turnos = turnos +1;
     }
 
-    public boolean getTipoFicha(){
-        return tipoFicha;
-    }
-
+    //Cambia el tipo de ficha a Nueva para diferencias de la iniciales
     public void fichaNueva(){
         tipoFicha = true;
+    }
+
+    //Setters y Getters
+
+    public boolean getTipoFicha(){
+        return tipoFicha;
     }
 
     public int getTurnos() {

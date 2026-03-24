@@ -25,6 +25,7 @@ public class DiceGameLogica {
         turnos = 1;
     }
 
+    //Inicializa la Cola con 10 personas
     public void LlenarCola(){
         for(int i = 0; i <= 9; i++){
             Persona p = new Persona(i);
@@ -33,6 +34,8 @@ public class DiceGameLogica {
         }
     }
 
+    //Gestiona la primera parte del turno, el lanzamiento de dados, el
+    // retirado de fichas y actualización del tipo de ficha
     public void lanzamientoDeDados(){
         turnos = turnos +1;
         aumentarContTurnosFichas();
@@ -55,6 +58,8 @@ public class DiceGameLogica {
         }
     }
 
+    //Gestiona la segunda parte del turno donde cada persona recibe las fichas que le corresponden
+    //o las saca del sistema
     public int pasoDeFichas(){
         for (int i = 0; i <= 9; i++) {
             ArrayList<Ficha> fichasRecibidas = fichasDPaso.get(i);
@@ -71,6 +76,7 @@ public class DiceGameLogica {
         return fichaSalida.size();
     }
 
+    //Separa las fichas iniciales de las nuevas, ya que las gráficas se basan en las nuevas
     public  void contTurnosFicha(ArrayList<Ficha> fichasRecibidas){
         for(Ficha f : fichasRecibidas){
             if(f.getTipoFicha()){
@@ -79,6 +85,7 @@ public class DiceGameLogica {
         }
     }
 
+    //Aumenta el contador de turnos de cada ficha por cada persona en la Cola de personas
     public void aumentarContTurnosFichas(){
         for(int i = 0; i <= 9; i++){
            Persona p = colaPersonas.peek(i);
@@ -86,17 +93,7 @@ public class DiceGameLogica {
         }
     }
 
-    public void mostrarConsola(){
-        String c = "";
-        for(int i = 0; i <= 9; i++){
-            Persona p = colaPersonas.peek(i);
-            if(p != null){
-                c = c + p.toString() + "\t";
-            }
-        }
-        System.out.println(c + " Fichas Salidas: " + fichaSalida.size());
-    }
-
+    //Regresa un arreglo con los valores de dado sacado por cada persona
     public int[] getDadosTirados(){
         int[] dados = new int[10];
         for(int i = 0; i <= 9; i++){
@@ -107,6 +104,9 @@ public class DiceGameLogica {
         }
         return dados;
     }
+
+
+    //Setters y Getters
 
     public int getTurnos() {
         return turnos;
@@ -139,5 +139,16 @@ public class DiceGameLogica {
             total = total + pActual.getNumFichas();
         }
         return total;
+    }
+
+    public void mostrarConsola(){
+        String c = "";
+        for(int i = 0; i <= 9; i++){
+            Persona p = colaPersonas.peek(i);
+            if(p != null){
+                c = c + p.toString() + "\t";
+            }
+        }
+        System.out.println(c + " Fichas Salidas: " + fichaSalida.size());
     }
 }

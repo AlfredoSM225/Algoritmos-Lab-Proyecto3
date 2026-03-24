@@ -34,6 +34,8 @@ public class ControlDiceGame implements Initializable {
 
     }
 
+    //Métodos necesarios para la funcionalidad de botones
+
     @FXML
     public void turno(){
         if(juego.getLogica().getTurnos() >= 22){
